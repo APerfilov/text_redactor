@@ -13,6 +13,7 @@ namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
+        //StreamReader sr;
         public Form1()
         {
             InitializeComponent();
@@ -47,16 +48,30 @@ namespace WindowsFormsApp1
 
         private void toolStripMenuItem3_Click(object sender, EventArgs e)
         {
+            string line = null;
+            string text;
+            
             openFileDialog2.InitialDirectory = "c:\\"; // путь дерриктории по умолчанию
             openFileDialog2.Filter = "Файл блокнота (*.txt)|*.txt|All files (*.*)|*.*"; //фильтр отображаемых файлов 
             openFileDialog2.FilterIndex = 1;//приоритетность фильтра
             openFileDialog2.RestoreDirectory = true; //возвращает ранее выбранный каталог
             if (openFileDialog2.ShowDialog() == DialogResult.OK) //показывает диалог открытия окна
             {
-                string filename = openFileDialog2.FileName; //FileName - имя открываемого файла
-                string text = File.ReadAllText(filename); // Содержимое файла
+                string filename = Convert.ToString(openFileDialog2.FileName); //FileName - имя открываемого файла
+                string inf = Convert.ToString(File.OpenText(filename)); // Содержимое файла
+                StreamReader sr = File.OpenText(filename);
+
+                line = sr.ReadLine();
+
+                while (line != null)
+                {
+                    richTextBox2.AppendText(line);
+                    richTextBox2.AppendText("\r\n");
+                    line = sr.ReadLine();
+                }
+                sr.Close();
             }
-            richTextBox2.Text = Text;
         }
+
     }
 }
