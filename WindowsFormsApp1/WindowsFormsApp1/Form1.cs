@@ -47,11 +47,16 @@ namespace WindowsFormsApp1
 
         private void toolStripMenuItem3_Click(object sender, EventArgs e)
         {
-            openFileDialog2.InitialDirectory = "c:\\";
-            openFileDialog2.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
-            openFileDialog2.FilterIndex = 1;
-            openFileDialog2.RestoreDirectory = true;
-            openFileDialog2.OpenFile();
+            openFileDialog2.InitialDirectory = "c:\\"; // путь дерриктории по умолчанию
+            openFileDialog2.Filter = "Файл блокнота (*.txt)|*.txt|All files (*.*)|*.*"; //фильтр отображаемых файлов 
+            openFileDialog2.FilterIndex = 1;//приоритетность фильтра
+            openFileDialog2.RestoreDirectory = true; //возвращает ранее выбранный каталог
+            if (openFileDialog2.ShowDialog() == DialogResult.OK) //показывает диалог открытия окна
+            {
+                string filename = openFileDialog2.FileName; //FileName - имя открываемого файла
+                string text = File.ReadAllText(filename); // Содержимое файла
+            }
+            richTextBox2.Text = Text;
         }
     }
 }
