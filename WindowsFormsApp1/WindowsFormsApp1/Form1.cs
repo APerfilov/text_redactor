@@ -14,6 +14,7 @@ namespace WindowsFormsApp1
     public partial class Form1 : Form
     {
         //StreamReader sr;
+        string filename;
         public Form1()
         {
             InitializeComponent();
@@ -43,7 +44,17 @@ namespace WindowsFormsApp1
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            
+            string line;
+            StreamWriter sw = new StreamWriter(filename);
+            saveFileDialog1.Filter = "Файл блокнота (*.txt)|*.txt|All files (*.*)|*.*";
+            saveFileDialog1.Title = "Сохранение";
+            saveFileDialog1.ShowDialog();
+            if (saveFileDialog1.ShowDialog() != "") //показывает диалог открытия окна
+            {
+                sw = (System.IO.FileStream)saveFileDialog1.OpenFile(); 
+                
+            }
+            sw.Close();
         }
 
         private void toolStripMenuItem3_Click(object sender, EventArgs e)
@@ -58,7 +69,7 @@ namespace WindowsFormsApp1
             if (openFileDialog2.ShowDialog() == DialogResult.OK) //показывает диалог открытия окна
             {
                 richTextBox2.Clear();
-                string filename = Convert.ToString(openFileDialog2.FileName); //FileName - имя открываемого файла
+                filename = Convert.ToString(openFileDialog2.FileName); //FileName - имя открываемого файла
                 string inf = Convert.ToString(File.OpenText(filename)); // Содержимое файла
                 StreamReader sr = File.OpenText(filename);
 
