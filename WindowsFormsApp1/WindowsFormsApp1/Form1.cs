@@ -57,6 +57,7 @@ namespace WindowsFormsApp1
             openFileDialog2.RestoreDirectory = true; //возвращает ранее выбранный каталог
             if (openFileDialog2.ShowDialog() == DialogResult.OK) //показывает диалог открытия окна
             {
+                richTextBox2.Clear();
                 string filename = Convert.ToString(openFileDialog2.FileName); //FileName - имя открываемого файла
                 string inf = Convert.ToString(File.OpenText(filename)); // Содержимое файла
                 StreamReader sr = File.OpenText(filename);
