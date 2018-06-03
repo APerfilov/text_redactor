@@ -14,7 +14,9 @@ namespace WindowsFormsApp1
     public partial class Form1 : Form
     {
         //StreamReader sr;
-        string FileName ="";
+        string filename = "";
+        string fname;
+        bool filechanged;
         public Form1()
         {
             InitializeComponent();
@@ -42,15 +44,10 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        private void toolStripMenuItem2_Click(object sender, EventArgs e, string FileName)
         {
-            string line;
-            string FileName;
-            string fname = "";
-            saveFileDialog1.InitialDirectory = "c:\\";
-
-            saveFileDialog1.Filter = "Файл блокнота (*.txt)|*.txt|All files (*.*)|*.*";
-            saveFileDialog1.Title = "Сохранение";
+            //Если переменная с именем файла пустая
+            //то вызываем диалог сохранения файла
             if (FileName == "")
             {
                 if (saveFileDialog1.ShowDialog() == DialogResult.OK)
@@ -60,18 +57,17 @@ namespace WindowsFormsApp1
             }
             try
             {
-                StreamWriter sw = new StreamWriter(FileName, Encoding.ASCII); //поток данных в файл
-
+                using (StreamWriter sw = new StreamWriter(FileName))
                 {
                     sw.Write(richTextBox2.Text);
                 }
-
                 fname = FileName;
-
-                sw.Close();
+                filechanged = false;
             }
-            catch { MessageBox.Show("Упс, а файлик то не записан остался"); }
-
+            catch
+            {
+                MessageBox.Show("Ошибка: Невозможно сохранить файл.");
+            }
         }
 
 
@@ -88,8 +84,8 @@ namespace WindowsFormsApp1
             {
                 richTextBox2.Clear();
                 filename = Convert.ToString(openFileDialog2.FileName); //FileName - имя открываемого файла
-                string inf = Convert.ToString(File.OpenText(FileName)); // Содержимое файла
-                StreamReader sr = File.OpenText(FileName);
+                string inf = Convert.ToString(File.OpenText(filename)); // Содержимое файла
+                StreamReader sr = File.OpenText(filename);
 
                 line = sr.ReadLine();
 
