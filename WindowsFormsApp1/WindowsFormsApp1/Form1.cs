@@ -14,7 +14,7 @@ namespace WindowsFormsApp1
     public partial class Form1 : Form
     {
         //StreamReader sr;
-        string filename;
+        string FileName ="";
         public Form1()
         {
             InitializeComponent();
@@ -27,7 +27,7 @@ namespace WindowsFormsApp1
 
         private void новыйФайлToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
@@ -38,30 +38,48 @@ namespace WindowsFormsApp1
         private void ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             {
-            
+
             }
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
             string line;
-            StreamWriter sw = new StreamWriter(filename);
+            string FileName;
+            string fname = "";
+            saveFileDialog1.InitialDirectory = "c:\\";
+
             saveFileDialog1.Filter = "Файл блокнота (*.txt)|*.txt|All files (*.*)|*.*";
             saveFileDialog1.Title = "Сохранение";
-            saveFileDialog1.ShowDialog();
-            if (saveFileDialog1.ShowDialog() != "") //показывает диалог открытия окна
+            if (FileName == "")
             {
-                sw = (System.IO.FileStream)saveFileDialog1.OpenFile(); 
-                
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    FileName = saveFileDialog1.FileName;
+                }
             }
-            sw.Close();
+            try
+            {
+                StreamWriter sw = new StreamWriter(FileName, Encoding.ASCII); //поток данных в файл
+
+                {
+                    sw.Write(richTextBox2.Text);
+                }
+
+                fname = FileName;
+
+                sw.Close();
+            }
+            catch { MessageBox.Show("Упс, а файлик то не записан остался"); }
+
         }
+
 
         private void toolStripMenuItem3_Click(object sender, EventArgs e)
         {
             string line = null;
             string text;
-            
+
             openFileDialog2.InitialDirectory = "c:\\"; // путь дерриктории по умолчанию
             openFileDialog2.Filter = "Файл блокнота (*.txt)|*.txt|All files (*.*)|*.*"; //фильтр отображаемых файлов 
             openFileDialog2.FilterIndex = 1;//приоритетность фильтра
@@ -70,8 +88,8 @@ namespace WindowsFormsApp1
             {
                 richTextBox2.Clear();
                 filename = Convert.ToString(openFileDialog2.FileName); //FileName - имя открываемого файла
-                string inf = Convert.ToString(File.OpenText(filename)); // Содержимое файла
-                StreamReader sr = File.OpenText(filename);
+                string inf = Convert.ToString(File.OpenText(FileName)); // Содержимое файла
+                StreamReader sr = File.OpenText(FileName);
 
                 line = sr.ReadLine();
 
@@ -84,6 +102,8 @@ namespace WindowsFormsApp1
                 sr.Close();
             }
         }
-
     }
 }
+
+
+
