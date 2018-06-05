@@ -15,6 +15,9 @@ namespace WindowsFormsApp1
     {
         //StreamReader sr;
         string filename;
+        string fname;
+        bool filechanged;
+        string new_name_file;
         public Form1()
         {
             InitializeComponent();
@@ -42,19 +45,9 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        private void toolStripMenuItem2_Click(object sender, EventArgs e, string filename)
         {
-            string line;
-            StreamWriter sw = new StreamWriter(filename);
-            saveFileDialog1.Filter = "Файл блокнота (*.txt)|*.txt|All files (*.*)|*.*";
-            saveFileDialog1.Title = "Сохранение";
-            saveFileDialog1.ShowDialog();
-            if (saveFileDialog1.ShowDialog() != "") //показывает диалог открытия окна
-            {
-                sw = (System.IO.FileStream)saveFileDialog1.OpenFile(); 
-                
-            }
-            sw.Close();
+           
         }
 
         private void toolStripMenuItem3_Click(object sender, EventArgs e)
@@ -85,5 +78,26 @@ namespace WindowsFormsApp1
             }
         }
 
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            richTextBox2.Text = ""; //очистка экрана
+            new_name_file = ""; // имя файла должно быть пустым
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            saveFileDialog1.DefaultExt = "*.rtf|*.txt"; //Форматы текста в подписи по умолчанию
+            
+            saveFileDialog1.Filter = "RTF Files|*.rtf| TXT Files|*.txt"; // расширения текста
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK && saveFileDialog1.FileName.Length>0)
+            {
+                new_name_file = saveFileDialog1.FileName; // путь и имя файла
+                richTextBox2.SaveFile(saveFileDialog1.FileName,RichTextBoxStreamType.PlainText); //сохранение из ричтекст
+
+            }
+
+        }
+
     }
+    
 }
