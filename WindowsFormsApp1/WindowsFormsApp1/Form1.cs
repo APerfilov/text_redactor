@@ -34,7 +34,7 @@ namespace WindowsFormsApp1
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
-            richTextBox1.Modified = true;
+            //richTextBox1.Modified = true;
         }
 
         private void ToolStripMenuItem_Click(object sender, EventArgs e)

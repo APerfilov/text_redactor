@@ -99,15 +99,14 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem открытьToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem открытьToolStripMenuItem1;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.ToolStripMenuItem новыйФайлToolStripMenuItem;
-        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
-        private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem;
+        // private System.Windows.Forms.RichTextBox richTextBox1;
+        // private System.Windows.Forms.MenuStrip menuStrip1;
+        //private System.Windows.Forms.ToolStripMenuItem открытьToolStripMenuItem;
+        //private System.Windows.Forms.ToolStripMenuItem открытьToolStripMenuItem1;
+        //private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        //private System.Windows.Forms.ToolStripMenuItem новыйФайлToolStripMenuItem;
+        //private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        //private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem;
         private System.Windows.Forms.RichTextBox richTextBox2;
         private System.Windows.Forms.MenuStrip menuStrip2;
         private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
