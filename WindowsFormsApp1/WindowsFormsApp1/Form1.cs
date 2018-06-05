@@ -56,8 +56,10 @@ namespace WindowsFormsApp1
             string text;
             
             openFileDialog2.InitialDirectory = "c:\\"; // путь дерриктории по умолчанию
-            openFileDialog2.Filter = "Файл блокнота (*.txt)|*.txt|All files (*.*)|*.*"; //фильтр отображаемых файлов 
-            openFileDialog2.FilterIndex = 1;//приоритетность фильтра
+            openFileDialog2.Filter = "TXT-файл (*.txt)|*.txt|RTF-файл (*.rtf)|*.rtf"; //фильтр отображаемых файлов 
+            openFileDialog2.FilterIndex = 2;//приоритетность фильтра
+            //openFileDialog2.Filter = "RTF-файл (*.rtf)|*.rtf|All files (*.*)|*.*"; //фильтр отображаемых файлов 
+            //openFileDialog2.FilterIndex = 1;//приоритетность фильтра
             openFileDialog2.RestoreDirectory = true; //возвращает ранее выбранный каталог
             if (openFileDialog2.ShowDialog() == DialogResult.OK) //показывает диалог открытия окна
             {
@@ -75,6 +77,7 @@ namespace WindowsFormsApp1
                     line = sr.ReadLine();
                 }
                 sr.Close();
+                filechanged = true;// файл сохранён и может быть перезаписан
             }
         }
 
@@ -96,7 +99,7 @@ namespace WindowsFormsApp1
                 richTextBox2.SaveFile(saveFileDialog1.FileName,RichTextBoxStreamType.PlainText); //сохранение из ричтекст
 
             }
-            filechanged = true;
+            filechanged = true;// файл сохранён и может быть перезаписан
         }
 
         private void toolStripMenuItem5_Click(object sender, EventArgs e)
@@ -107,6 +110,10 @@ namespace WindowsFormsApp1
             }
         }
 
+        private void выходToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
     
 }
