@@ -82,6 +82,7 @@ namespace WindowsFormsApp1
         {
             richTextBox2.Text = ""; //очистка экрана
             new_name_file = ""; // имя файла должно быть пустым
+           
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
@@ -95,7 +96,15 @@ namespace WindowsFormsApp1
                 richTextBox2.SaveFile(saveFileDialog1.FileName,RichTextBoxStreamType.PlainText); //сохранение из ричтекст
 
             }
+            filechanged = true;
+        }
 
+        private void toolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+            if (filechanged == true) // сохранение уже открытого файла
+            {
+                richTextBox2.SaveFile(saveFileDialog1.FileName, RichTextBoxStreamType.PlainText); //сохранение из ричтекст
+            }
         }
 
     }

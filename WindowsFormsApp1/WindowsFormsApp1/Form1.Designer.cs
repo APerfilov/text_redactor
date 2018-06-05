@@ -37,6 +37,7 @@
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.folderBrowserDialog2 = new System.Windows.Forms.FolderBrowserDialog();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,7 +64,8 @@
             this.файлToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem4,
             this.toolStripMenuItem3,
-            this.toolStripMenuItem2});
+            this.toolStripMenuItem2,
+            this.toolStripMenuItem5});
             this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
             this.файлToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.файлToolStripMenuItem.Text = "Файл";
@@ -86,12 +88,19 @@
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItem2.Text = "Сохранить";
+            this.toolStripMenuItem2.Text = "Сохранить как..";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // openFileDialog2
             // 
             this.openFileDialog2.FileName = "openFileDialog2";
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem5.Text = "Сохранить";
+            this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
             // 
             // Form1
             // 
@@ -126,6 +135,7 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
     }
 }
 
