@@ -19,13 +19,15 @@ namespace WindowsFormsApp1
         bool filechanged;
         string new_name_file;
         int size;
-        string font;
+        
         public Form1()
         {
             InitializeComponent();
             richTextBox2.SelectionIndent = 35;
             richTextBox2.BulletIndent = 30;
-          
+
+            
+           
 
         }
 
@@ -149,7 +151,11 @@ namespace WindowsFormsApp1
 
         private void абзацToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            richTextBox2.SelectionFont
+            paragraph newForm = new paragraph();
+            newForm.Owner = this;
+            newForm.ShowDialog();
+            richTextBox2.Text = Convert.ToString(right);
+            
         }
     }
     
