@@ -156,7 +156,9 @@ namespace WindowsFormsApp1
             newForm.ShowInTaskbar = false;
             newForm.StartPosition = FormStartPosition.CenterParent; // отобразить дочернее окно по центру родительской формы
             newForm.ShowDialog(); //показать дочернее модальное окно
-           
+            richTextBox2.SelectionIndent = Convert.ToInt16(textBox1.Text);//отступ слева
+            richTextBox2.SelectionRightIndent = Convert.ToInt16(textBox2.Text);//отступ справа
+
         }
     }
     
