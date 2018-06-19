@@ -13,7 +13,7 @@ namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
-        //StreamReader sr;
+               
         string filename;
         string fname;
         bool filechanged;
@@ -25,10 +25,11 @@ namespace WindowsFormsApp1
             InitializeComponent();
             richTextBox2.SelectionIndent = 35;
             richTextBox2.BulletIndent = 30;
-          
+
+         
 
         }
-
+        
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
 
@@ -147,9 +148,15 @@ namespace WindowsFormsApp1
             
         }
 
-        private void абзацToolStripMenuItem_Click(object sender, EventArgs e)
+        public void абзацToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            richTextBox2.SelectionFont
+
+            Form2 newForm = new Form2(); // jобращение к дочерней форме
+            newForm.Owner = this; //присвоить значение родительской формы
+            newForm.ShowInTaskbar = false;
+            newForm.StartPosition = FormStartPosition.CenterParent; // отобразить дочернее окно по центру родительской формы
+            newForm.ShowDialog(); //показать дочернее модальное окно
+           
         }
     }
     
