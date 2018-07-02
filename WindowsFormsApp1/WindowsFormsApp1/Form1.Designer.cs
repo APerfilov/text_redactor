@@ -36,15 +36,17 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.шрифтToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.шрифтToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.цветToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.абзацToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.folderBrowserDialog2 = new System.Windows.Forms.FolderBrowserDialog();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.шрифтToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.шрифтToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.цветToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.абзацToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -115,10 +117,6 @@
             this.выходToolStripMenuItem.Text = "Выход";
             this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
             // 
-            // openFileDialog2
-            // 
-            this.openFileDialog2.FileName = "openFileDialog2";
-            // 
             // шрифтToolStripMenuItem
             // 
             this.шрифтToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -133,27 +131,49 @@
             // шрифтToolStripMenuItem1
             // 
             this.шрифтToolStripMenuItem1.Name = "шрифтToolStripMenuItem1";
-            this.шрифтToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.шрифтToolStripMenuItem1.Size = new System.Drawing.Size(113, 22);
             this.шрифтToolStripMenuItem1.Text = "Шрифт";
             this.шрифтToolStripMenuItem1.Click += new System.EventHandler(this.шрифтToolStripMenuItem1_Click);
             // 
             // цветToolStripMenuItem
             // 
             this.цветToolStripMenuItem.Name = "цветToolStripMenuItem";
-            this.цветToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.цветToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
             this.цветToolStripMenuItem.Text = "Цвет..";
             this.цветToolStripMenuItem.Click += new System.EventHandler(this.цветToolStripMenuItem_Click);
             // 
             // абзацToolStripMenuItem
             // 
             this.абзацToolStripMenuItem.Name = "абзацToolStripMenuItem";
-            this.абзацToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.абзацToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
             this.абзацToolStripMenuItem.Text = "Абзац..";
             this.абзацToolStripMenuItem.Click += new System.EventHandler(this.абзацToolStripMenuItem_Click);
+            // 
+            // openFileDialog2
+            // 
+            this.openFileDialog2.FileName = "openFileDialog2";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(63, 27);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(39, 20);
+            this.textBox1.TabIndex = 2;
+            this.textBox1.Text = "0";
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(108, 27);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(42, 20);
+            this.textBox2.TabIndex = 3;
             // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(842, 516);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.richTextBox2);
             this.Controls.Add(this.menuStrip2);
             this.MainMenuStrip = this.menuStrip2;
@@ -193,6 +213,8 @@
         private System.Windows.Forms.ToolStripMenuItem шрифтToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem цветToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem абзацToolStripMenuItem;
+        public System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.TextBox textBox2;
     }
 }
 
